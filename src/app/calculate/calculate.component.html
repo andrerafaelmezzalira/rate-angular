@@ -1,0 +1,25 @@
+<table class="table table-hover responsive">
+    <thead>
+    <tr>
+        <td>Origem</td>
+        <td>Destino</td>
+        <td>Tempo</td>
+        <td>Plano FaleMais</td>
+        <td>Com FaleMais</td>
+        <td>Sem FaleMais</td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let rate of rates">
+            <td>{{ rate.origin }}</td>
+            <td>{{ rate.target }}</td>
+            <td><input type="number"  #minutes (change)="calculate(rate, minutes.value, minutesPlan.value)"  /></td>
+            <td><select #minutesPlan (change)="calculate(rate, minutes.value, minutesPlan.value)">
+                <option *ngFor="let plan of plans" [value]="plan.minute">{{plan.name}}</option>
+                </select></td>
+            <td>{{ rate.withPlan }}</td>
+            <td>{{ rate.withoutPlan }}</td>
+        </tr>
+    </tbody>
+  </table>
