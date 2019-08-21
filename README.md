@@ -1,5 +1,5 @@
 # rate-angular
-Projeto Angular 8
+Projeto Angular 8 com Boostrap 4
 
 ## Pré requisito
 - Nodejs 10
