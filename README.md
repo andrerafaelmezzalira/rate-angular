@@ -10,9 +10,8 @@ Projeto Angular 8 com Boostrap 4
 - Após clonar o projeto, na raiz, execute os comandos
   
 ```
-sudo npm install -g @angular/cli
 sudo npm install
-ng serve 
+npm start 
 
 ```
 

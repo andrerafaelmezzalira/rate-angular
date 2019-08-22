@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CalculateComponent } from './calculate/calculate.component';
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(ptBr)
 
 @NgModule({
   declarations: [
@@ -12,7 +16,7 @@ import { CalculateComponent } from './calculate/calculate.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [CalculateComponent]
 })
 export class AppModule { }

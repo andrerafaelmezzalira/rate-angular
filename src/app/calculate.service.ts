@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CalculateService {
 
-  uri = 'http://localhost:8080/calculate/';
+  uri = 'http://' + window.location.hostname + ':8080/calculate/';
 
   constructor(private http: HttpClient) { }
 

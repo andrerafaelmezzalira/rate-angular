@@ -27,6 +27,11 @@ export class CalculateComponent implements OnInit {
   }
 
   calculate(rate:any, minutes:any, minutesPlan:any) {
+    if (!minutes) {
+      rate.withPlan = "";
+      rate.withoutPlan = "";
+      return;
+    }
     this.calculateService.calculate(rate.origin, rate.target, minutes, minutesPlan).subscribe((res : any[])=>{
       rate.withPlan = res;
     });

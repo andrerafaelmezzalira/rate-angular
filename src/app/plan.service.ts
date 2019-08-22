@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PlanService {
 
-  uri = 'http://localhost:8080/plans/';
+  uri = 'http://' + window.location.hostname + ':8080/plans/';
 
   constructor(private http: HttpClient) { }
 

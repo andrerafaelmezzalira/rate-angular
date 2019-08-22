@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RateService {
 
-  uri = 'http://localhost:8080/rates/';
+  uri = 'http://' + window.location.hostname + ':8080/rates/';
 
   constructor(private http: HttpClient) { }
 

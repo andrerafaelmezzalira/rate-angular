@@ -1,25 +1,40 @@
-<table class="table table-hover responsive">
-    <thead>
-    <tr>
-        <td>Origem</td>
-        <td>Destino</td>
-        <td>Tempo</td>
-        <td>Plano FaleMais</td>
-        <td>Com FaleMais</td>
-        <td>Sem FaleMais</td>
-    </tr>
-    </thead>
-  
-    <tbody>
-        <tr *ngFor="let rate of rates">
-            <td>{{ rate.origin }}</td>
-            <td>{{ rate.target }}</td>
-            <td><input type="number"  #minutes (change)="calculate(rate, minutes.value, minutesPlan.value)"  /></td>
-            <td><select #minutesPlan (change)="calculate(rate, minutes.value, minutesPlan.value)">
-                <option *ngFor="let plan of plans" [value]="plan.minute">{{plan.name}}</option>
-                </select></td>
-            <td>{{ rate.withPlan }}</td>
-            <td>{{ rate.withoutPlan }}</td>
-        </tr>
-    </tbody>
-  </table>
+<nav class="navbar navbar-dark bg-primary">
+    <span class="navbar-brand">Plano FaleMais!</span>
+</nav>
+<div class="container" >
+    <div style="width: 80%; margin: auto">
+        <div class="table-responsive">
+            <table class="table table-hover responsive">
+                <thead>
+                    <tr>
+                        <td>Origem</td>
+                        <td>Destino</td>
+                        <td>Tempo</td>
+                        <td>Plano FaleMais</td>
+                        <td><b>Com FaleMais</b></td>
+                        <td><b>Sem FaleMais</b></td>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    <tr *ngFor="let rate of rates">
+                        <td>0{{ rate.origin }}</td>
+                        <td>0{{ rate.target }}</td>
+                        <td>
+                            <div class="input-group mb-3">
+                                <input style="width: 50px;" type="number"  #minutes (keyup)="calculate(rate, minutes.value, minutesPlan.value)" class="form-control" >
+                            </div>
+                        </td>              
+                        <td>
+                            <select class="custom-select" #minutesPlan (change)="calculate(rate, minutes.value, minutesPlan.value)">
+                                <option *ngFor="let plan of plans" [value]="plan.minute">{{plan.name}}</option>
+                            </select>
+                        </td>
+                        <td>{{ rate.withPlan | currency: 'R$ ' }}</td>
+                        <td>{{ rate.withoutPlan | currency: 'R$' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
